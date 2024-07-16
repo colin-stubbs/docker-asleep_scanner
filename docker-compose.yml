@@ -1,0 +1,19 @@
+services:
+  asleep_scanner:
+    container_name: asleep_scanner
+    image: asleep_scanner:latest
+    build: ./build/
+    working_dir: /usr/src/asleep_scanner
+    restart: no
+    entrypoint:
+      - /usr/src/asleep_scanner/asleep.py
+      - '-b'
+      - res_scan.txt
+      - '-l'
+    volumes:
+      - ./reports:/usr/src/asleep_scanner/reports
+      - ./scan/res_scan.txt:/usr/src/asleep_scanner/res_scan.txt
+      - ./scan/scan.txt:/usr/src/asleep_scanner/scan.txt
+      - ./scan/combinations.txt:/usr/src/asleep_scanner/combinations.txt
+      - ./scan/logins.txt:/usr/src/asleep_scanner/logins.txt
+      - ./scan/passwords.txt:/usr/src/asleep_scanner/passwords.txt

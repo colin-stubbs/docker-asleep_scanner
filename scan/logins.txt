@@ -1,0 +1,6 @@
+admin
+666666
+888888
+default
+111111
+user
