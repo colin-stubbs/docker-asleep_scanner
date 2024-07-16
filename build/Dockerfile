@@ -12,6 +12,7 @@ RUN apt update && \
   git clone https://github.com/S0Ulle33/asleep_scanner.git && \
   cd asleep_scanner && \
   pip3 install -r requirements.txt && \
+  sed -i.original -e 's/^import imp$/#import imp - python3.3 legacy thing, replaced by importlib, and yet not required.../' export.py && \
   chmod 0755 /usr/src/asleep_scanner/asleep.py
 
 WORKDIR /root
